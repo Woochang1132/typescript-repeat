@@ -150,4 +150,25 @@
         }
     }
 
+        // Milk
+        const cheapMilkMaker = new CheapMilkSteamer();
+        const fancyMilkMaker = new FancyMilkSteamer();
+        const coldMilkMaker = new coldMilkSteamer();
+        const noMilk = new NoMilk();
+        // Sugar
+        const candySugar = new CandySugarMixer();
+        const sugar = new SugarMixer();
+        const noSugar = new NoSugar();
+    
+    
+        const sweetCandyMachine = new CoffeeMachine(12, noMilk,candySugar);
+        const sweetMachine = new CoffeeMachine(12, noMilk ,sugar);
+    
+        const latteMachine = new CoffeeMachine(12 , cheapMilkMaker, noSugar);
+        const coldLatteMachine = new CoffeeMachine(12, coldMilkMaker, noSugar);
+        const sweetLatteMachine = new CoffeeMachine(
+            12,
+            cheapMilkMaker,
+            candySugar
+        )
 }
