@@ -89,5 +89,21 @@
         }   
      }
 
-
+     const machine = new CoffeeMachine(23);
+     const latteMachine = new CoffeeLatteMachine(30, "SSSS");
+     const coffee = latteMachine.makeCoffee(1);
+     console.log("latteMachine.serialNumber >>", latteMachine.serialNumber)
+ 
+         const machines = [
+             new CoffeeMachine(16),
+             new CoffeeLatteMachine(16, "ssss"),
+             new SweetCoffeeMaker(16),
+             new CoffeeMachine(16),
+             new CoffeeLatteMachine(16, "ssss"),
+             new SweetCoffeeMaker(16)
+         ];
+         machines.forEach(machine => {
+             console.log("------------------------------------");
+             machine.makeCoffee(1);
+         })
     }
