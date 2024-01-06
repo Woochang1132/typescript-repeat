@@ -21,7 +21,14 @@
             try{
                 this.userService.login();
             }catch(error){
-
+ // catch로 오는 순간 any type으로, 타입을 잃어버리기 때문에
+            // instanceof를 사용할 수 없다.
+/*             if(error instanceof OfflineError){
+                //
+            }
+ */
+            // exception 적정한 위치, 효율적 예외 이외의 상황을 보여줄 수 있는 곳
+            //show dialog to user(일시적인 오류가 있습니다.)
             }
             
         }
