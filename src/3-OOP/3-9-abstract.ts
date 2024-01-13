@@ -47,4 +47,43 @@
             return this.extract(shots);
         }
     }
+
+    class CoffeeLatteMachine extends CoffeeMachine{
+        constructor(beans: number, public readonly serialNumber : string){
+            super(beans);
+        }
+        private steamMilk() : void {
+            console.log('Steaming some milk...');
+        }
+        protected extract(shots: number): CoffeeCup{
+            this.steamMilk();
+            return {
+                shots,
+                hasMilk: true,
+            }
+        }        
+    }
+    class SweetCoffeeMaker extends CoffeeMachine{
+        protected extract(shots: number): CoffeeCup{
+            return {
+                shots,
+                hasSugar: true,
+            }
+        }   
+     }
+
+    const latteMachine = new CoffeeLatteMachine(30, "ssss");
+    const coffee = latteMachine.makeCoffee(1);
+    console.log("latteMachine.serialNumber >>", latteMachine.serialNumber)
+
+        const machines = [
+            new CoffeeLatteMachine(16, "ssss"),
+            new SweetCoffeeMaker(16),
+            new CoffeeLatteMachine(16, "ssss"),
+            new SweetCoffeeMaker(16)
+        ];
+        machines.forEach(machine => {
+            console.log("------------------------------------");
+            machine.makeCoffee(1);
+        })
 }
